@@ -1,6 +1,7 @@
 import { salesPageData } from '../data/salespage';
 import { useState, useEffect } from 'react';
 import { trackEvent } from '../lib/tracking';
+import { buildCheckoutUrl } from '../lib/checkout';
 
 // Timer interno
 function SalesTimer({ initialMinutes }) {
@@ -56,7 +57,7 @@ export default function SalesPage() {
   const { anchor, price, installments } = salesPageData.pricing;
   
   // Enviroment variable
-  const hotmartUrl = import.meta.env.VITE_HOTMART_URL || salesPageData.ctaUrl;
+  const hotmartUrl = buildCheckoutUrl();
 
   return (
     <div className="w-full max-w-md mx-auto px-4 py-8 space-y-12" style={{ animation: 'fadeIn 0.5s ease forwards' }}>

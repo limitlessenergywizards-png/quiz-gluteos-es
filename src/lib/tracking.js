@@ -51,15 +51,14 @@ function getUtmParams() {
  */
 async function getGeoData() {
   try {
-    const res = await fetch('https://ipwho.is/');
+    const res = await fetch('https://freeipapi.com/api/json', { signal: AbortSignal.timeout(3000) });
     if (!res.ok) throw new Error('geo fetch failed');
     const data = await res.json();
-    if (!data.success) throw new Error('geo lookup failed');
     return {
-      ip_address: data.ip || null,
-      country: data.country || null,
-      city: data.city || null,
-      region: data.region || null,
+      ip_address: data.ipAddress || null,
+      country: data.countryName || null,
+      city: data.cityName || null,
+      region: data.regionName || null,
     };
   } catch {
     return { ip_address: null, country: null, city: null, region: null };

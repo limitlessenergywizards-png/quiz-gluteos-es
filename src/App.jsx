@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import LandingPage from './pages/LandingPage';
 import QuizPage from './pages/QuizPage';
 import { initSession, trackEvent } from './lib/tracking';
+import { captureUtms } from './lib/checkout';
 
 const ResultPage = React.lazy(() => import('./pages/ResultPage'));
 const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'));
@@ -33,9 +34,10 @@ function App() {
   const [globalAnswers, setGlobalAnswers] = useState({});
 
   useEffect(() => {
-    initSession().then(() => {
-      trackEvent('landing_view');
-    });
+    captureUtms();
+    initSession()
+      .then(() => trackEvent('landing_view'))
+      .catch((err) => console.error('Session init failed:', err));
   }, []);
 
   const navigateTo = (screen) => {

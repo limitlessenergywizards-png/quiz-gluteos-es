@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { salesPageData } from '../data/salespage';
 import { trackEvent } from '../lib/tracking';
+import { buildCheckoutUrl } from '../lib/checkout';
 
 function FAQItem({ item }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,7 @@ function SalesTimer({ initialMinutes }) {
 }
 
 export default function CheckoutPage() {
-  const hotmartUrl = import.meta.env.VITE_HOTMART_URL || salesPageData.ctaUrl;
+  const hotmartUrl = buildCheckoutUrl();
 
   useEffect(() => {
     window.scrollTo(0, 0);
