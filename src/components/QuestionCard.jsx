@@ -21,7 +21,7 @@ export default function QuestionCard({ question, onAnswer, questionIndex }) {
 
   return (
     <div key={animateKey} className="w-full" style={{ animation: 'slideUp 0.3s ease forwards' }}>
-      <h2 className="text-[20px] font-extrabold text-[#111827] mb-8 leading-snug text-center px-2">
+      <h2 className="text-[18px] font-extrabold text-[#111827] mb-5 leading-snug text-center px-1">
         {question.question}
       </h2>
       

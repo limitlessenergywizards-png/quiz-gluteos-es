@@ -1,5 +1,6 @@
 import { salesPageData } from '../data/salespage';
 import { useState, useEffect } from 'react';
+import { trackEvent } from '../lib/tracking';
 
 // Timer interno
 function SalesTimer({ initialMinutes }) {
@@ -82,7 +83,7 @@ export default function SalesPage() {
            <div className="flex items-center flex-col space-y-2"><span className="text-[22px]">🔒</span><span className="text-center leading-tight">Privacidad<br/>Protegida</span></div>
         </div>
 
-        <a href={hotmartUrl} className="w-full bg-[#15803D] hover:bg-green-800 text-white font-black text-xl py-5 min-h-[48px] rounded-xl shadow-[0_10px_20px_rgba(21,128,61,0.3)] transition-transform transform hover:-translate-y-1 flex justify-center items-center active:scale-95">
+        <a href={hotmartUrl} onClick={() => trackEvent('cta_click', { location: 'price_block' })} className="w-full bg-[#15803D] hover:bg-green-800 text-white font-black text-xl py-5 min-h-[48px] rounded-xl shadow-[0_10px_20px_rgba(21,128,61,0.3)] transition-transform transform hover:-translate-y-1 flex justify-center items-center active:scale-95">
           Quiero mi Guía Ahora
         </a>
       </div>
@@ -120,7 +121,7 @@ export default function SalesPage() {
         <p className="text-[15px] text-gray-600 leading-relaxed mb-8 font-medium">
           {salesPageData.guarantee.text}
         </p>
-        <a href={hotmartUrl} className="w-full block bg-[#15803D] hover:bg-green-800 text-white font-black text-lg py-5 min-h-[48px] rounded-2xl shadow-[0_10px_20px_rgba(21,128,61,0.25)] transition-transform active:scale-95">
+        <a href={hotmartUrl} onClick={() => trackEvent('cta_click', { location: 'guarantee' })} className="w-full block bg-[#15803D] hover:bg-green-800 text-white font-black text-lg py-5 min-h-[48px] rounded-2xl shadow-[0_10px_20px_rgba(21,128,61,0.25)] transition-transform active:scale-95">
           Quiero mi Guía por {price}
         </a>
       </div>

@@ -1,8 +1,10 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import LandingPage from './pages/LandingPage';
 import QuizPage from './pages/QuizPage';
+import { initSession, trackEvent } from './lib/tracking';
 
 const ResultPage = React.lazy(() => import('./pages/ResultPage'));
+const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'));
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -27,8 +29,14 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState('landing'); // 'landing' | 'quiz' | 'result'
+  const [currentScreen, setCurrentScreen] = useState('landing'); // 'landing' | 'quiz' | 'result' | 'checkout'
   const [globalAnswers, setGlobalAnswers] = useState({});
+
+  useEffect(() => {
+    initSession().then(() => {
+      trackEvent('landing_view');
+    });
+  }, []);
 
   const navigateTo = (screen) => {
     setCurrentScreen(screen);
@@ -39,12 +47,16 @@ function App() {
     <ErrorBoundary>
       <div className="w-full h-full min-h-screen flex flex-col">
         {currentScreen === 'landing' && (
-          <LandingPage onStartQuiz={() => navigateTo('quiz')} />
+          <LandingPage onStartQuiz={() => {
+            trackEvent('quiz_start');
+            navigateTo('quiz');
+          }} />
         )}
         
         {currentScreen === 'quiz' && (
-          <QuizPage 
+          <QuizPage
             onComplete={(finalAnswers) => {
+              trackEvent('quiz_complete', { answers: finalAnswers });
               setGlobalAnswers(finalAnswers);
               navigateTo('result');
             }}
@@ -53,7 +65,16 @@ function App() {
         
         {currentScreen === 'result' && (
           <Suspense fallback={<div className="flex-1 flex flex-col justify-center items-center h-screen bg-brand-purpleLight text-brand-purpleDark font-bold text-xl"><div className="w-12 h-12 border-4 border-brand-purple border-t-transparent rounded-full animate-spin mb-4"></div>Cargando resultados...</div>}>
-            <ResultPage answers={globalAnswers} />
+            <ResultPage onGoToCheckout={() => {
+              trackEvent('cta_click', { location: 'diagnostic' });
+              navigateTo('checkout');
+            }} />
+          </Suspense>
+        )}
+
+        {currentScreen === 'checkout' && (
+          <Suspense fallback={<div className="flex-1 flex flex-col justify-center items-center h-screen bg-white text-gray-800 font-bold text-xl"><div className="w-12 h-12 border-4 border-brand-purple border-t-transparent rounded-full animate-spin mb-4"></div>Cargando...</div>}>
+            <CheckoutPage />
           </Suspense>
         )}
       </div>

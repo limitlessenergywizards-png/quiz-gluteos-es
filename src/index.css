@@ -52,7 +52,16 @@
   to { width: var(--target-width); } 
 }
 
-@keyframes pulse { 
-  0%, 100% { opacity: 1; } 
-  50% { opacity: 0.7; } 
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes ctaPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-cta-pulse {
+  animation: ctaPulse 1.8s ease-in-out infinite;
 }

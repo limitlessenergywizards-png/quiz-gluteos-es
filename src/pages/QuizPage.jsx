@@ -22,7 +22,7 @@ export default function QuizPage({ onComplete }) {
   const currentBgClass = qData ? bgClasses[qData.phase] || 'bg-white' : 'bg-white';
 
   return (
-    <div className={`flex-1 flex flex-col items-center justify-start pt-6 px-5 pb-10 transition-colors duration-700 min-h-screen relative overflow-hidden w-full ${currentBgClass}`}>
+    <div className={`flex-1 flex flex-col items-center justify-start pt-4 px-4 pb-6 transition-colors duration-700 min-h-[100dvh] relative overflow-hidden w-full ${currentBgClass}`}>
       {showLoading && loadingData ? (
         <LoadingScreen data={loadingData} onComplete={finishLoading} />
       ) : (

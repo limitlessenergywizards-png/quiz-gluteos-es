@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { questions, loadingScreens } from '../data/questions';
+import { trackAnswer } from '../lib/tracking';
 
 export const useQuiz = (onCompleteMain) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -10,6 +11,7 @@ export const useQuiz = (onCompleteMain) => {
   const answerQuestion = useCallback((questionId, optionId) => {
     const newAnswers = { ...answers, [questionId]: optionId };
     setAnswers(newAnswers);
+    trackAnswer(questionId, optionId);
     
     // Check if we just answered the last question
     if (currentQuestion >= questions.length - 1) {

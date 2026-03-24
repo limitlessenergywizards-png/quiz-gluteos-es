@@ -3,10 +3,10 @@ export const salesPageData = {
   subheadline: "Con base en tus respuestas, identificamos que puedes conquistar piernas torneadas y glúteos levantados en 4 semanas — incluso con rodillas sensibles.",
   timerMinutes: 15,
   pricing: {
-    anchor: "R$ 197,90",
-    price: "R$ 39,90",
-    installments: "5 x de R$ 9,09",
-    currency: "BRL"
+    anchor: "$97",
+    price: "$9",
+    installments: "",
+    currency: "USD"
   },
   cta: "Quiero Transformar mis Piernas y Glúteos en 4 Semanas →",
   ctaUrl: "#",

@@ -1,21 +1,25 @@
 export const loadingScreens = [
-  { 
-    afterQuestion: 3, 
-    percent: 24, 
-    title: "Analizando tu información", 
-    items: ["Edad y objetivos identificados", "Tiempo disponible calculado", "Historial de entrenamiento registrado"] 
+  {
+    afterQuestion: 3,
+    percent: 24,
+    title: "Analizando tu información",
+    image: "/images/loading-1.webp",
+    items: ["Edad y objetivos identificados", "Tiempo disponible calculado", "Historial de entrenamiento registrado"]
   },
-  { 
-    afterQuestion: 12, 
-    percent: 92, 
-    title: "🔎 Identificando patrones en tus respuestas", 
-    items: ["Dolores y frustraciones mapeados", "Bloqueos identificados", "Perfil conductual analizado"] 
+  {
+    afterQuestion: 12,
+    percent: 92,
+    image: "/images/loading-2.png",
+    title: "🔎 Identificando patrones en tus respuestas",
+    items: ["Dolores y frustraciones mapeados", "Bloqueos identificados", "Perfil conductual analizado"]
   },
-  { 
-    afterQuestion: 19, 
-    percent: 90, 
-    title: "🔎 Conectando tus necesidades con la solución ideal", 
-    items: ["Impacto emocional medido", "Urgencia identificada", "Compromiso en análisis"] 
+  {
+    afterQuestion: 19,
+    percent: 90,
+    image: "/images/loading-3.webp",
+    imageSmall: true,
+    title: "🔎 Conectando tus necesidades con la solución ideal",
+    items: ["Impacto emocional medido", "Urgencia identificada", "Compromiso en análisis"]
   }
 ];
 

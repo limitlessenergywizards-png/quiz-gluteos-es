@@ -3,8 +3,8 @@ export default function ProgressBar({ currentQuestion, totalQuestions }) {
   const percentage = Math.min(100, Math.max(0, (currentQuestion / totalQuestions) * 100)) || 0;
   
   return (
-    <div className="w-full mb-6">
-      <div className="flex items-center justify-center space-x-2 text-2xl mb-4">
+    <div className="w-full mb-4">
+      <div className="flex items-center justify-center space-x-2 text-xl mb-3">
         <span role="img" aria-label="peach">🍑</span>
         <span role="img" aria-label="measuring tape">📏</span>
       </div>
@@ -22,7 +22,7 @@ export default function ProgressBar({ currentQuestion, totalQuestions }) {
         ></div>
       </div>
       
-      <div className="text-center mt-3 text-xs font-bold text-gray-400 uppercase tracking-widest">
+      <div className="text-center mt-2 text-xs font-bold text-gray-600 uppercase tracking-widest">
         Progreso: {Math.round(percentage)}%
       </div>
     </div>
