@@ -24,8 +24,8 @@ export default function DiagnosticScreen({ onContinue }) {
 
     const t1 = setTimeout(() => setPhase(1), 2600);
     const t2 = setTimeout(() => setPhase(2), 3400);
-    // Botão aparece 15s após o vídeo ficar visível
-    const tCta = setTimeout(() => setShowCta(true), 3400 + 15000);
+    // Botão aparece 1min54s após o vídeo ficar visível
+    const tCta = setTimeout(() => setShowCta(true), 3400 + 114000);
 
     return () => {
       clearInterval(interval);
