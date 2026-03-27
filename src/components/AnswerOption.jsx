@@ -3,7 +3,7 @@ export default function AnswerOption({ option, onSelect, style, index, isSelecte
   const hasEmoji = option.emoji && option.emoji.trim() !== '';
 
   // Is this a "light" button (white bg, dark text)?
-  const isLight = !isMixedFirst && style !== 'purple';
+  const isLight = style !== 'purple';
 
   let baseClasses = "w-full min-h-[48px] px-4 py-3 rounded-[12px] mb-2 transition-colors duration-200 border-2 shadow-sm active:scale-[0.98]";
 
@@ -18,7 +18,7 @@ export default function AnswerOption({ option, onSelect, style, index, isSelecte
   }
 
   if (isMixedFirst) {
-    baseClasses += " bg-[#15803D] border-[#15803D] text-white hover:bg-green-800";
+    baseClasses += " bg-white border-gray-200 text-gray-800 hover:border-[#7C3AED] hover:shadow-md";
   } else if (style === 'purple') {
     baseClasses += " bg-[#7C3AED] border-[#7C3AED] text-white hover:bg-[#6B21A8]";
   } else {
