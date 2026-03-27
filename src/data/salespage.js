@@ -4,7 +4,7 @@ export const salesPageData = {
   timerMinutes: 15,
   pricing: {
     anchor: "$97",
-    price: "$9",
+    price: "US$ 12,90",
     installments: "",
     currency: "USD"
   },

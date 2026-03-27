@@ -76,7 +76,7 @@ export default function CheckoutPage() {
         <div className="bg-white rounded-2xl p-5 shadow-xl border-2 border-[#15803D] mb-6 relative overflow-hidden">
           {/* Discount badge */}
           <div className="absolute top-0 left-0 bg-red-500 text-white text-[11px] font-black px-3 py-1.5 rounded-br-xl">
-            -91% OFF
+            -87% OFF
           </div>
 
           <div className="flex items-center justify-between">
@@ -92,7 +92,7 @@ export default function CheckoutPage() {
             {/* Lado direito — preço novo */}
             <div className="text-right">
               <p className="text-[#15803D] text-[12px] font-bold uppercase tracking-wide">Precio de hoy</p>
-              <p className="text-[3rem] font-black text-[#15803D] tracking-tighter leading-none">$9</p>
+              <p className="text-[2.5rem] font-black text-[#15803D] tracking-tighter leading-none">US$ 12,90</p>
               <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">USD · pago único</p>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function CheckoutPage() {
           className="w-full block bg-[#15803D] hover:bg-green-800 text-white font-black text-[18px] py-5 min-h-[56px] rounded-2xl shadow-[0_12px_24px_rgba(21,128,61,0.35)] transition-transform transform hover:-translate-y-1 active:scale-[0.98] animate-cta-pulse mb-8"
         >
           <span className="flex items-center justify-center gap-2">
-            Quiero mi Guía Ahora por $9
+            Quiero mi Guía Ahora por US$ 12,90
             <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </span>
         </a>
@@ -299,7 +299,7 @@ export default function CheckoutPage() {
             onClick={() => trackEvent('cta_click', { location: 'checkout_guarantee' })}
             className="w-full block bg-[#15803D] hover:bg-green-800 text-white font-black text-[16px] py-4 min-h-[48px] rounded-2xl shadow-[0_10px_20px_rgba(21,128,61,0.25)] transition-transform active:scale-[0.98] animate-cta-pulse"
           >
-            Quiero mi Guía por $9
+            Quiero mi Guía por US$ 12,90
           </a>
         </div>
 
