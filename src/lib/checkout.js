@@ -2,7 +2,7 @@
  * Checkout URL and UTM propagation utilities.
  */
 
-const DEFAULT_CHECKOUT_URL = 'https://pay.hotmart.com/U104562370W?off=9hdj05p0&checkoutMode=10';
+const DEFAULT_CHECKOUT_URL = 'https://pay.hotmart.com/E105100032W';
 
 const CHECKOUT_URL =
   import.meta.env.VITE_HOTMART_URL?.trim() || DEFAULT_CHECKOUT_URL;

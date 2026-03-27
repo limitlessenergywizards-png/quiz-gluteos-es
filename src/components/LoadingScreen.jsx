@@ -5,7 +5,7 @@ export default function LoadingScreen({ data, onComplete }) {
 
   useEffect(() => {
     let startTime = Date.now();
-    const duration = 2500;
+    const duration = 4000;
     const targetPercent = data?.percent || 100;
 
     const interval = setInterval(() => {
@@ -16,7 +16,7 @@ export default function LoadingScreen({ data, onComplete }) {
 
     const timeout = setTimeout(() => {
       if (onComplete) onComplete();
-    }, 3000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -55,7 +55,7 @@ export default function LoadingScreen({ data, onComplete }) {
       <div className="w-full max-w-sm bg-white/10 rounded-full h-2.5 mt-3 mb-1 overflow-hidden shadow-inner border border-white/5 flex-shrink-0">
         <div
           className="bg-brand-lavender h-full rounded-full shadow-[0_0_10px_rgba(167,139,250,0.8)]"
-          style={{ '--target-width': `${data?.percent || 100}%`, animation: 'progressFill 2.5s ease-out forwards' }}
+          style={{ '--target-width': `${data?.percent || 100}%`, animation: 'progressFill 4s ease-out forwards' }}
         ></div>
       </div>
       <div className="text-right w-full max-w-sm text-xs font-black text-brand-lavender mb-3 tracking-widest flex-shrink-0">
@@ -68,7 +68,7 @@ export default function LoadingScreen({ data, onComplete }) {
           <div
              key={index}
              className="flex items-center space-x-3 bg-white/5 p-2.5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm"
-             style={{ animation: `checkAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards ${index * 0.6}s`, opacity: 0 }}
+             style={{ animation: `checkAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards ${index * 0.9}s`, opacity: 0 }}
           >
             <div className="bg-[#15803D] text-white rounded-full p-0.5 flex-shrink-0 shadow-sm border border-green-400/50">
                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7"></path></svg>
